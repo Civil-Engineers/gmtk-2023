@@ -10,8 +10,6 @@ using UnityEngine.EventSystems;
 public abstract class PointAndClick : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
     IPointerUpHandler, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    // TODO: Make class abstract and extendable for different types of game actions
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +27,7 @@ public abstract class PointAndClick : MonoBehaviour, IPointerEnterHandler, IPoin
         // Change cursor to pointer sprite
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public virtual void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("Exited " + gameObject.name);
 
