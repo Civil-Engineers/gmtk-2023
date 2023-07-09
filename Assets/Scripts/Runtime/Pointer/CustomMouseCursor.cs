@@ -7,48 +7,50 @@ namespace Peebo.Runtime.Pointer
 {
     public class CustomMouseCursor : PointAndClick
     {
-        [SerializeField] public Texture2D[] mouseCursor;
-        [SerializeField] public Texture2D[] defaultCursor;
-        [SerializeField] public float frameRate;
+        [Tooltip("Sprites to use for cursor OnPointerEnter")]
+        [SerializeField] public Texture2D[] pointerCursors;
+        [Tooltip("Sprites to use for default cursor")]
+        [SerializeField] public Texture2D[] defaultCursors;
+        [Tooltip("Coordinates for cursor click position (default is top left)")]
+        [SerializeField] public Vector2 hotSpot = new(0, 0);
 
-        private IEnumerator animateHoverCoroutine;
-        private IEnumerator animateDefaultCoroutine;
-        private int currentFrame = 0;
-
-        Vector2 hotSpot = new Vector2(0, 0);
+        private IEnumerator _animatePointerCursorCo;
+        private IEnumerator _animateDefaultCursorCo;
+        private int _currentFrame = 0;
 
         // Start is called before the first frame update
         void Start()
         {
-            animateHoverCoroutine = AnimateCursor(mouseCursor);
-            animateDefaultCoroutine = AnimateCursor(defaultCursor);
+            _animatePointerCursorCo = AnimateCursor(pointerCursors);
+            _animateDefaultCursorCo = AnimateCursor(defaultCursors);
         }
 
         // Update is called once per frame
         void Update()
         {
-           
         }
 
-        IEnumerator AnimateCursor(Texture2D[] cursorArray) {
-            currentFrame = 0;
-            while(true) {
-                currentFrame = (currentFrame + 1) % cursorArray.Length;
-                Cursor.SetCursor(cursorArray[currentFrame], hotSpot, CursorMode.ForceSoftware);
+        IEnumerator AnimateCursor(Texture2D[] cursors) {
+            while(cursors.Length > 0) {
+                _currentFrame = (_currentFrame + 1) % cursors.Length;
+                Cursor.SetCursor(cursors[_currentFrame], hotSpot, CursorMode.ForceSoftware);
                 yield return new WaitForSeconds(0.5f);
+                Debug.Log("CUSTOM CURSOR");
             }
         }
 
         public override void OnPointerExit(PointerEventData eventData)
         {
-            StopCoroutine(animateHoverCoroutine);
-            StartCoroutine(animateDefaultCoroutine);
+            _currentFrame = 0;
+
+            StopCoroutine(_animatePointerCursorCo);
+            StartCoroutine(_animateDefaultCursorCo);
         }
 
         public override void OnPointerEnter(PointerEventData eventData)
         {
-            StopCoroutine(animateDefaultCoroutine);
-            StartCoroutine(animateHoverCoroutine);
+            StopCoroutine(_animateDefaultCursorCo);
+            StartCoroutine(_animatePointerCursorCo);
         }
     }
 }
