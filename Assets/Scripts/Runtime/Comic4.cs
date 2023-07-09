@@ -38,7 +38,7 @@ public class Comic4 : MonoBehaviour
                     comic.Play("IC6");
                     break;
                 case 5:
-                    SceneManager.LoadScene("LoveGame");
+                    SceneManager.LoadScene("LOVE");
                     break;
             }
             index++;
