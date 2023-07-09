@@ -28,6 +28,7 @@ namespace Peebo.Runtime.Minigames.Cleaning
             if (rubishContainer.childCount <= 0)
             {
                 // DONE!
+                Debug.Log("cleaning done!");
             }
         }
     }
