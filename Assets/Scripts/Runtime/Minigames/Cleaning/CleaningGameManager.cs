@@ -1,6 +1,8 @@
+using Peebo.Runtime.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Peebo.Runtime.Minigames.Cleaning
 {
@@ -14,8 +16,11 @@ namespace Peebo.Runtime.Minigames.Cleaning
 
     public class CleaningGameManager : MonoBehaviour
     {
-        public Transform rubishContainer;
+        [SerializeField] public Transform rubishContainer;
         [SerializeField] public GameObject[] stains;
+
+        [Header("Event Listeners")]
+        [SerializeField] public UnityEvent onGameEnd;
 
         // Start is called before the first frame update
         void Start()
@@ -30,6 +35,11 @@ namespace Peebo.Runtime.Minigames.Cleaning
                 // DONE!
                 Debug.Log("cleaning done!");
             }
+        }
+
+        public void OnStainWiped(StainWipeEventData eventData)
+        {
+            Debug.Log("Wiped stain " + eventData.RemovedStain.name);
         }
     }
 }

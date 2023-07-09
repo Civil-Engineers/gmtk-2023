@@ -35,7 +35,6 @@ namespace Peebo.Runtime.Pointer
                 _currentFrame = (_currentFrame + 1) % cursors.Length;
                 Cursor.SetCursor(cursors[_currentFrame], hotSpot, CursorMode.ForceSoftware);
                 yield return new WaitForSeconds(0.5f);
-                Debug.Log("CUSTOM CURSOR");
             }
         }
 
