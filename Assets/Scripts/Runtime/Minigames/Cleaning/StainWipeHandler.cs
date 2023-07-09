@@ -23,6 +23,7 @@ namespace Peebo.Runtime.Minigames.Cleaning
         [SerializeField] public float stainRemoveAlphaThreshold = 0.3f;
 
         private RawImage _image;
+        private Outline _outline;
 
         private Vector2 _beginWipePos;
         private bool _isWiping;
@@ -31,11 +32,19 @@ namespace Peebo.Runtime.Minigames.Cleaning
         void Start()
         {
             _image = gameObject.GetComponent<RawImage>();
+            _outline = gameObject.GetComponent<Outline>();
+            _outline.enabled = false;
         }
 
         // Update is called once per frame
         void Update()
         {
+        }
+
+        public override void OnPointerEnter(PointerEventData eventData)
+        {
+            // Enable outline component
+            _outline.enabled = true;
         }
 
         public override void OnPointerDown(PointerEventData eventData)
@@ -69,6 +78,9 @@ namespace Peebo.Runtime.Minigames.Cleaning
         {
             // Only perform wipe if dragging as well
             if(_isWiping) PerformWipe();
+
+            // Turn off outline
+            _outline.enabled = false;
         }
 
         private void PerformWipe()
