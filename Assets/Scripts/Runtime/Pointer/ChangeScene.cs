@@ -11,11 +11,11 @@ namespace Peebo.Runtime.Pointer
     public class ChangeScene : PointAndClick
     {
         [Tooltip("Scene to change to")]
-        [SerializeField] public SceneAsset scene;
+        [SerializeField] public string scenePath;
 
         public override void OnPointerClick(PointerEventData eventData)
         {
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(scenePath);
         }
     }
 }
