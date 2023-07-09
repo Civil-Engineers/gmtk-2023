@@ -1,6 +1,8 @@
+using Peebo.Runtime.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Peebo.Runtime.Minigames.Cleaning
 {
@@ -10,9 +12,15 @@ namespace Peebo.Runtime.Minigames.Cleaning
     /// It should keep track of all gameObjects that have the StainWipeHandler script.
     /// When all stains are wiped clean, switch scenes using a Scene Manager.
     /// </summary>
+
+
     public class CleaningGameManager : MonoBehaviour
     {
+        [SerializeField] public Transform rubishContainer;
         [SerializeField] public GameObject[] stains;
+
+        [Header("Event Listeners")]
+        [SerializeField] public UnityEvent onGameEnd;
 
         // Start is called before the first frame update
         void Start()
@@ -22,7 +30,16 @@ namespace Peebo.Runtime.Minigames.Cleaning
         // Update is called once per frame
         void Update()
         {
-        
+            if (rubishContainer.childCount <= 0)
+            {
+                // DONE!
+                Debug.Log("cleaning done!");
+            }
+        }
+
+        public void OnStainWiped(StainWipeEventData eventData)
+        {
+            Debug.Log("Wiped stain " + eventData.RemovedStain.name);
         }
     }
 }
