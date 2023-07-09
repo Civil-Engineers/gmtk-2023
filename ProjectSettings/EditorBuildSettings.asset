@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CleanFloorTest - golf.unity
+    path: Assets/Scenes/CLEANING.unity
     guid: ca80bd2ab857242e68d5f1d3517f3349
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
