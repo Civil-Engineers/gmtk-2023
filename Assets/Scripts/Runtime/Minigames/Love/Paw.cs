@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Peebo.Runtime.Audio;
 
 public class Paw : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Paw : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("MinigameBG");
         rectTransform = gameObject.GetComponent<RectTransform>();
     }
 
@@ -54,10 +56,12 @@ public class Paw : MonoBehaviour
             if(angle-firstAngle > 0) {
                 // Debug.Log("Nay");
                 Debug.Log(!profile.isGood() ? "Correct" : "Wrong");
+                FindObjectOfType<AudioManager>().Play("SwipeLeft");
 
             } else {
                 // Debug.Log("Yay");
                 Debug.Log(profile.isGood() ? "Correct" : "Wrong");
+                FindObjectOfType<AudioManager>().Play("SwipeRight");
             }
             click = false;
             profile.resetPosition();
