@@ -15,6 +15,7 @@ public class FoodGame : MonoBehaviour
 
     private bool waiting = true;
     private bool seeFood = false;
+    private int n = 0;
 
     private bool girlGrabbing = false;
 
@@ -30,8 +31,13 @@ public class FoodGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetMouseButtonDown(0)) {
             am.peeboGrab();
+            n++;
+            Debug.Log("asdf");
+        }
+        if(n > 2) {
+            SceneManager.LoadScene("ComicMess");
         }
 
         //  if (Input.GetMouseButtonDown(0)) {

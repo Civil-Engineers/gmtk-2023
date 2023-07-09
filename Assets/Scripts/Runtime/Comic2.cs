@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Peebo.Runtime.Audio;
 public class Comic2 : MonoBehaviour
 {
     int index = 0;
@@ -11,7 +11,7 @@ public class Comic2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("ComicBG");
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class Comic2 : MonoBehaviour
                     comic.Play("IC7");
                     break;
                 case 6:
-                    SceneManager.LoadScene("ComicMess");
+                    SceneManager.LoadScene("FOOD");
                     break;
             }
             index++;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Peebo.Runtime.Audio;
 
 namespace Peebo.Runtime.Minigames.Cleaning
 {
@@ -26,6 +27,7 @@ namespace Peebo.Runtime.Minigames.Cleaning
         // Start is called before the first frame update
         void Start()
         {
+            FindObjectOfType<AudioManager>().Play("MinigameBG");
         }
 
         // Update is called once per frame

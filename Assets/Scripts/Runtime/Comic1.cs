@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Peebo.Runtime.Audio;
 
 public class Comic1 : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Comic1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("ComicBG");
     }
 
     // Update is called once per frame

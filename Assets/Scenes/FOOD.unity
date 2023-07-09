@@ -491,14 +491,13 @@ GameObject:
   m_Component:
   - component: {fileID: 916389708}
   - component: {fileID: 916389710}
-  - component: {fileID: 916389711}
   m_Layer: 5
   m_Name: FoodGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &916389708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -507,7 +506,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916389707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -517,7 +516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -5.99, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916389710
@@ -535,20 +534,6 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
---- !u!114 &916389711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916389707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d38c4327f6074fc68b20a3b0810f00c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodImage: {fileID: 1301657867}
-  foodGen: {fileID: 11400000, guid: 667388b0a9f3f4f3ab86bdb3c5262342, type: 2}
 --- !u!1 &1301657865
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1590260966}
   girlAnimator: {fileID: 558854255}
+  done: 0
 --- !u!1 &1766558932
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +787,10 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
+  eventSystem: {fileID: 0}
+  onStainWiped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1766558935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,6 +912,10 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
+  eventSystem: {fileID: 0}
+  onStainWiped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1793866699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +934,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 93a60a0063e283b4aab07e3429390b67, type: 3}
   defaultCursors:
   - {fileID: 0}
-  hotSpot: {x: 0, y: 0}
+  eventSystem: {fileID: 0}
+  onCursorChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1793866700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,6 +1028,10 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
+  eventSystem: {fileID: 0}
+  onStainWiped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1925251435
 MonoBehaviour:
   m_ObjectHideFlags: 0
