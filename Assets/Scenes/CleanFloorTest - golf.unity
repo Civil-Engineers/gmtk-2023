@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 753045253}
   - component: {fileID: 753045256}
   m_Layer: 5
-  m_Name: Left Window
+  m_Name: Floor Stain 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,18 +966,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753045248}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.65065855, w: 0.7593704}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 110946288}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 81.183}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -189.92, y: 192.14}
-  m_SizeDelta: {x: 204.69, y: 416.24}
+  m_AnchoredPosition: {x: -262, y: -106.11}
+  m_SizeDelta: {x: 385.77, y: 212.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &753045252
 CanvasRenderer:
@@ -1005,7 +1005,20 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   onStainWiped:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 165028006}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
+          Assembly-CSharp
+        m_MethodName: OnStainWiped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &753045254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 93a60a0063e283b4aab07e3429390b67, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1746,7 +1759,7 @@ GameObject:
   - component: {fileID: 1206739867}
   - component: {fileID: 1206739864}
   m_Layer: 5
-  m_Name: Left Window 2
+  m_Name: Floor Stain 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,7 +1782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -50.499}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 334, y: 38}
+  m_AnchoredPosition: {x: 377, y: -49}
   m_SizeDelta: {x: 370.97, y: 156.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206739864
@@ -1790,7 +1803,20 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   onStainWiped:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 165028006}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
+          Assembly-CSharp
+        m_MethodName: OnStainWiped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1206739865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1804,14 +1830,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8117222, b: 0.41960788, a: 1}
+  m_Color: {r: 1, g: 0.41960788, b: 0.44280803, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 5f47641471340fc40b7d6c7c4b9324f9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2025,7 +2051,7 @@ GameObject:
   - component: {fileID: 1323104499}
   - component: {fileID: 1323104496}
   m_Layer: 5
-  m_Name: Giant Lego
+  m_Name: Floor Stain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2069,7 +2095,20 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   onStainWiped:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 165028006}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
+          Assembly-CSharp
+        m_MethodName: OnStainWiped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1323104497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,14 +2122,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6415094, g: 0.13770305, b: 0.099857606, a: 1}
+  m_Color: {r: 0.8113208, g: 0.5560388, b: 0.15690637, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 93a60a0063e283b4aab07e3429390b67, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
