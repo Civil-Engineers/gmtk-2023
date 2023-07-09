@@ -1,58 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class FoodGame : MonoBehaviour
 {
-    public Transform spawnLocation;
-    public GameObject[] foodPrefabs;
+    [SerializeField] private UnityEngine.UI.Image foodImage;
+    [SerializeField] private FoodGenerator foodGen;
 
-    GameObject currentFood;
-    FoodType currentFoodType;
+    private Food[] randomFoods; 
+    private Food currentFood;
+
+    private int numFoods = 5;
+    private int foodItr = 0;
+
+    private bool waiting = true;
+    private bool seeFood = false;
+
+    private bool girlGrabbing = false;
+
+    private AnimationManager am = AnimationManager.Instance;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(routine: ExampleCoroutine());
+        // GenerateFood();
+        setImageAlpha(foodImage, 0);
     }
 
-    IEnumerator ExampleCoroutine()
+    // Update is called once per frame
+    void Update()
     {
-        while (true)
-        {
-            // search for food animation
-            yield return new WaitForSeconds(1);
-            currentFood = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnLocation);
-            currentFoodType = currentFood.GetComponent<Food>().foodType;
+        if (Input.GetButtonDown("Jump")) {
+            am.peeboGrab();
+        }
 
-            // wait for click
-            yield return new WaitForSeconds(2);
-            if (currentFood == null)
-            {
-                // dont eat food anymation
-                // user clicked on the food
-            }
-            else
-            {
-                // eat food animation
-                Destroy(currentFood);
-            }
+        //  if (Input.GetMouseButtonDown(0)) {
+        //     am.peeboGrab();
+        //  }
 
-            // wait for animation
-            yield return new WaitForSeconds(2);
+        // if (foodItr < numFoods) {
+        //     if (waiting) {
+        //         wait();
+        //         waiting = false;
+        //     } else {
+        //         am.startGirlGrab();
+        //         girlGrabbing = true;
+        //         waitFood();
+        //         toggleFood();
+        //     }
+        // }
+    }
+
+    // private void GenerateFood() {
+    //     randomFoods = foodGen.Generate(numFoods);
+    //     currentFood = randomFoods[0];
+    //     foodImage.sprite = currentFood.Image;
+    // }
+
+    private void nextFood() {
+        currentFood = randomFoods[foodItr];
+        foodImage.sprite = currentFood.Image;
+    }
+
+    private void toggleFood() {
+        if (seeFood) {
+            setImageAlpha(foodImage, 0);
+        } else {
+            setImageAlpha(foodImage, 1);
         }
     }
+
+    bool isFoodBad() {
+        return currentFood.isBad;
+    }
+    IEnumerator wait() {
+        // errorText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        // errorText.gameObject.SetActive(false);
+    }
+
+    IEnumerator waitFood() {
+        yield return new WaitForSeconds(1f);
+    }
+
+    private void setImageAlpha(UnityEngine.UI.Image img, int alpha) {
+        Color col = img.color;
+        col.a = alpha;
+        img.color = col;
+    }
 }
-
-
-
-/**
-serach for food
-show food
-food goes away
-show good or bad animation
-serach for food
-show food
-*/
