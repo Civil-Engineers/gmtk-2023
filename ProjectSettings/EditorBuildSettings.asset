@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ComicFood.unity
     guid: 0a188b8a37c76964db901cc393a5c04c
   - enabled: 1
+    path: Assets/Scenes/FOOD.unity
+    guid: 9bcd50dde5a614a55b25c75480cac9b7
+  - enabled: 1
     path: Assets/Scenes/ComicMess.unity
     guid: b55f29ca3a308c349baee3f453432083
   - enabled: 1
@@ -26,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LOVE.unity
     guid: 7444651187fc89042ba6163846386985
-  - enabled: 1
-    path: Assets/Scenes/FOOD.unity
-    guid: 9bcd50dde5a614a55b25c75480cac9b7
   - enabled: 1
     path: Assets/Scenes/ComicEnd.unity
     guid: fb76d4e802730544c8bb027c7f5397ed
