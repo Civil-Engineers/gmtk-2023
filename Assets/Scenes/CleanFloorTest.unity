@@ -235,7 +235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66dab84529b14e449a44f40aafcc6d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stains: []
+  stains:
+  - {fileID: 753045248}
+  - {fileID: 1206739862}
+  - {fileID: 1323104494}
+  onGameEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +455,7 @@ GameObject:
   - component: {fileID: 753045254}
   - component: {fileID: 753045255}
   - component: {fileID: 753045253}
-  - component: {fileID: 753045255}
+  - component: {fileID: 753045256}
   m_Layer: 5
   m_Name: Left Window
   m_TagString: Untagged
@@ -500,6 +506,23 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
+  eventSystem: {fileID: 104501919}
+  onStainWiped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 165028006}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
+          Assembly-CSharp
+        m_MethodName: OnStainWiped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &753045254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +745,23 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
+  eventSystem: {fileID: 104501919}
+  onStainWiped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 165028006}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
+          Assembly-CSharp
+        m_MethodName: OnStainWiped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1206739865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +898,23 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
+  eventSystem: {fileID: 104501919}
+  onStainWiped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 165028006}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
+          Assembly-CSharp
+        m_MethodName: OnStainWiped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1323104497
 MonoBehaviour:
   m_ObjectHideFlags: 0

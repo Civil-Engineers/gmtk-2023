@@ -1,8 +1,10 @@
+using Peebo.Runtime.Events;
 using Peebo.Runtime.Pointer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -21,6 +23,13 @@ namespace Peebo.Runtime.Minigames.Cleaning
         [SerializeField] public int numberOfWipes = 5;
         [Tooltip("How low the image color alpha can be before it is removed")]
         [SerializeField] public float stainRemoveAlphaThreshold = 0.3f;
+
+        [Header("Event System")]
+        [Tooltip("The event system to use for event handling")]
+        [SerializeField] public EventSystem eventSystem;
+
+        [Header("Event Listeners")]
+        [SerializeField] public UnityEvent<StainWipeEventData> onStainWiped;
 
         private RawImage _image;
         private Outline _outline;
@@ -95,6 +104,12 @@ namespace Peebo.Runtime.Minigames.Cleaning
             {
                 Debug.Log("WIPE: STAIN REMOVED");
                 Destroy(gameObject);
+
+                StainWipeEventData stainWipeData = new(eventSystem)
+                {
+                    RemovedStain = gameObject
+                };
+                onStainWiped?.Invoke(stainWipeData);
                 return;
             }
 
