@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5713e2a657ff02447aeed51f2d3e0e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenePath: Assets/Scenes/CLEANING.unity
+  scenePath: Assets/Scenes/ComicStart.unity
 --- !u!1 &1237364703
 GameObject:
   m_ObjectHideFlags: 0

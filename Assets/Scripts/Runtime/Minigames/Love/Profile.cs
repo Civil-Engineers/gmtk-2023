@@ -33,7 +33,7 @@ public class Profile : MonoBehaviour
             img.sprite = sprites[index];
             return true;
         } else {
-            index =0;
+            index = 0;
             img.sprite = sprites[index];
             return false;
         }

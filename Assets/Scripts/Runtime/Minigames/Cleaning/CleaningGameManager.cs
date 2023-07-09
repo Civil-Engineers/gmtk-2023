@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Peebo.Runtime.Minigames.Cleaning
 {
@@ -34,6 +35,7 @@ namespace Peebo.Runtime.Minigames.Cleaning
             {
                 // DONE!
                 Debug.Log("cleaning done!");
+                SceneManager.LoadScene("ComicLove");
             }
         }
 

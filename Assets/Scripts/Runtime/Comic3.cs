@@ -30,7 +30,7 @@ public class Comic3 : MonoBehaviour
                     comic.Play("IC4");
                     break;
                 case 3: 
-                    SceneManager.LoadScene("CleanGame");
+                    SceneManager.LoadScene("CLEANING");
                     break;
             }
             index++;

@@ -40,7 +40,7 @@ public class Comic2 : MonoBehaviour
                     comic.Play("IC7");
                     break;
                 case 6:
-                    SceneManager.LoadScene("FoodGame");
+                    SceneManager.LoadScene("ComicMess");
                     break;
             }
             index++;
