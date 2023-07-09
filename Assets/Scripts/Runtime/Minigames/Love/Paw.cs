@@ -16,6 +16,7 @@ public class Paw : MonoBehaviour
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("MinigameBG");
+        Cursor.visible = false;
         rectTransform = gameObject.GetComponent<RectTransform>();
     }
 
