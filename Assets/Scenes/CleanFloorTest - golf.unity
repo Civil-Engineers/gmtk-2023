@@ -687,6 +687,54 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8327974534131190357, guid: e800f1ed0ed42485abd431d8d3f23f75, type: 3}
   m_PrefabInstance: {fileID: 769359643}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &445196903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445196904}
+  - component: {fileID: 445196905}
+  m_Layer: 0
+  m_Name: Custom Cursor Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445196904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445196903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 697450083}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445196905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445196903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58618fb267bf9064896e9ff13ad19a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotSpot: {x: 0, y: 0}
+  defaultCursors:
+  - {fileID: 2800000, guid: 6f18a717423043a4c9ede10d64f2a759, type: 3}
+  - {fileID: 2800000, guid: 34d2b4a8dab0cd94c9aa12b28aa485a5, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +983,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 165028005}
+  - {fileID: 445196904}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1002,11 +1051,11 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
-  eventSystem: {fileID: 0}
+  eventSystem: {fileID: 104501919}
   onStainWiped:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 165028006}
+      - m_Target: {fileID: 165028004}
         m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
           Assembly-CSharp
         m_MethodName: OnStainWiped
@@ -1079,7 +1128,22 @@ MonoBehaviour:
   defaultCursors:
   - {fileID: 2800000, guid: 6f18a717423043a4c9ede10d64f2a759, type: 3}
   - {fileID: 2800000, guid: 34d2b4a8dab0cd94c9aa12b28aa485a5, type: 3}
-  hotSpot: {x: 0, y: 0}
+  eventSystem: {fileID: 104501919}
+  onCursorChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 445196905}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Game.CustomCursorManager, Assembly-CSharp
+        m_MethodName: OnCursorChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &769359643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1758,6 +1822,7 @@ GameObject:
   - component: {fileID: 1206739865}
   - component: {fileID: 1206739867}
   - component: {fileID: 1206739864}
+  - component: {fileID: 1206739868}
   m_Layer: 5
   m_Name: Floor Stain 2
   m_TagString: Untagged
@@ -1800,7 +1865,7 @@ MonoBehaviour:
   minWipeDistance: 50
   numberOfWipes: 5
   stainRemoveAlphaThreshold: 0.3
-  eventSystem: {fileID: 0}
+  eventSystem: {fileID: 104501919}
   onStainWiped:
     m_PersistentCalls:
       m_Calls:
@@ -1867,6 +1932,40 @@ MonoBehaviour:
   m_EffectColor: {r: 0.2028302, g: 0.27513248, b: 1, a: 1}
   m_EffectDistance: {x: 8, y: -8}
   m_UseGraphicAlpha: 1
+--- !u!114 &1206739868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206739862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc1ff81befe3a4398e32a0fab10739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerCursors:
+  - {fileID: 2800000, guid: 547560a6af985b049ac298a0477cc7e3, type: 3}
+  - {fileID: 2800000, guid: bbc3840c76abbc54592ef75ceef958e1, type: 3}
+  defaultCursors:
+  - {fileID: 2800000, guid: 6f18a717423043a4c9ede10d64f2a759, type: 3}
+  - {fileID: 2800000, guid: 34d2b4a8dab0cd94c9aa12b28aa485a5, type: 3}
+  eventSystem: {fileID: 104501919}
+  onCursorChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 445196905}
+        m_TargetAssemblyTypeName: Peebo.Runtime.Game.CustomCursorManager, Assembly-CSharp
+        m_MethodName: OnCursorChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1239825545 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639808712134723733, guid: b6d648e147ee04441b842769364831ea, type: 3}
@@ -2037,128 +2136,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6d648e147ee04441b842769364831ea, type: 3}
---- !u!1 &1323104494
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1323104495}
-  - component: {fileID: 1323104498}
-  - component: {fileID: 1323104497}
-  - component: {fileID: 1323104499}
-  - component: {fileID: 1323104496}
-  m_Layer: 5
-  m_Name: Floor Stain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1323104495
+--- !u!224 &1323104495 stripped
 RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+  m_PrefabInstance: {fileID: 2577956300596967041}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323104494}
-  m_LocalRotation: {x: -0, y: -0, z: 0.005601736, w: 0.9999843}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 110946288}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.642}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24, y: -342}
-  m_SizeDelta: {x: 370.97, y: 156.38}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1323104496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323104494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae4e0103104f7945966370c61f2369c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minWipeDistance: 50
-  numberOfWipes: 5
-  stainRemoveAlphaThreshold: 0.3
-  eventSystem: {fileID: 0}
-  onStainWiped:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 165028006}
-        m_TargetAssemblyTypeName: Peebo.Runtime.Minigames.Cleaning.CleaningGameManager,
-          Assembly-CSharp
-        m_MethodName: OnStainWiped
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1323104497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323104494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.5560388, b: 0.15690637, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 93a60a0063e283b4aab07e3429390b67, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1323104498
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323104494}
-  m_CullTransparentMesh: 1
---- !u!114 &1323104499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323104494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.2028302, g: 0.27513248, b: 1, a: 1}
-  m_EffectDistance: {x: 8, y: -8}
-  m_UseGraphicAlpha: 1
 --- !u!1 &1327964545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2494,123 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e800f1ed0ed42485abd431d8d3f23f75, type: 3}
+--- !u!1001 &2577956300596967041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 110946288}
+    m_Modifications:
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 370.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 156.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999843
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.005601736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -342
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725462008025756254, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983244768901662028, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: m_Name
+      value: Floor Stain
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627029637165218537, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 104501919}
+    - target: {fileID: 7627029637165218537, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: onCursorChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 445196905}
+    - target: {fileID: 7906683606723775262, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 104501919}
+    - target: {fileID: 7906683606723775262, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
+      propertyPath: onStainWiped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 165028006}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c178539d07524d440b09c8c6ce6b7e27, type: 3}
 --- !u!1001 &8177008379131215063
 PrefabInstance:
   m_ObjectHideFlags: 0
