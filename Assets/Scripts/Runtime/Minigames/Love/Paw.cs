@@ -26,18 +26,18 @@ public class Paw : MonoBehaviour
         float angle = -Vector2.SignedAngle(delta, Vector2.up)+test;
         gameObject.transform.eulerAngles = new Vector3(0, 0, angle);
         if(Input.GetMouseButtonDown(0)) {
-            if(-18 < angle && angle < 25.8f) {
+            if(-18 < angle && angle < 34.8f) {
                 click = true;
                 firstAngle = angle;
             }
         } else if (click && Input.GetMouseButton(0)) {
             profile.setPosition(angle-firstAngle);
-            if(-18 > angle || angle > 25.8f) {
+            if(-18 > angle || angle > 34.8f) {
                 checkSwipe(angle);
                 click = false;
                 profile.resetPosition();
             }
-        } else if (Input.GetMouseButtonUp(0)) {
+        } else if (click && Input.GetMouseButtonUp(0)) {
             checkSwipe(angle);
             profile.resetPosition();
         }
