@@ -11,15 +11,12 @@ namespace Peebo.Runtime.Minigames.Cleaning
     /// <summary>
     /// Manages game state for cleaning minigame on scene load.
     /// 
-    /// It should keep track of all gameObjects that have the StainWipeHandler script.
-    /// When all stains are wiped clean, switch scenes using a Scene Manager.
+    /// When all stains are wiped clean and all trash are thrown away,
+    /// switch to next cutscene using SceneManager.
     /// </summary>
-
-
     public class CleaningGameManager : MonoBehaviour
     {
-        [SerializeField] public Transform rubishContainer;
-        [SerializeField] public GameObject[] stains;
+        [SerializeField] public Transform rubbishContainer;
 
         [Header("Event Listeners")]
         [SerializeField] public UnityEvent onGameEnd;
@@ -27,18 +24,19 @@ namespace Peebo.Runtime.Minigames.Cleaning
         // Start is called before the first frame update
         void Start()
         {
-            FindObjectOfType<AudioManager>().Play("MinigameBG");
+            AudioManager audio = FindObjectOfType<AudioManager>();
+            if(audio != null)
+            {
+                audio.Play("MinigameBG");
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (rubishContainer.childCount <= 0)
-            {
-                // DONE!
-                Debug.Log("cleaning done!");
-                SceneManager.LoadScene("ComicLove");
-            }
+            if (rubbishContainer.childCount > 0) return;
+
+            SceneManager.LoadScene("ComicLove");
         }
 
         public void OnStainWiped(StainWipeEventData eventData)
