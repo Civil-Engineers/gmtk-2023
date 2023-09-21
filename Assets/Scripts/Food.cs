@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 using System;
 
 [Serializable]
-public class Food : PointAndClick
+public class Food
 {
-    public Sprite Image;
+    public Sprite sprite;
     public bool isBad;
     // public AnimationClip animation;
 

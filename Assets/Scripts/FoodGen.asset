@@ -13,36 +13,40 @@ MonoBehaviour:
   m_Name: FoodGen
   m_EditorClassIdentifier: 
   goodFoods:
-  - Image: {fileID: 21300000, guid: 30a2d186e84ac4e45adba023fe075e4b, type: 3}
+  - sprite: {fileID: 0}
     isBad: 0
-  - Image: {fileID: 21300000, guid: dc1aa471c4c024ad8a54f34c2258bea3, type: 3}
+  - sprite: {fileID: 21300000, guid: 630e2b546228a4d6d86622e0d0e6fe7a, type: 3}
     isBad: 0
-  - Image: {fileID: 21300000, guid: 630e2b546228a4d6d86622e0d0e6fe7a, type: 3}
+  - sprite: {fileID: 21300000, guid: ab155995413f74c33a8aa0a0edce3a2b, type: 3}
     isBad: 0
-  - Image: {fileID: 21300000, guid: 05a1a3939d32c4299bb65ed64e965817, type: 3}
+  - sprite: {fileID: 21300000, guid: 630e2b546228a4d6d86622e0d0e6fe7a, type: 3}
     isBad: 0
-  - Image: {fileID: 21300000, guid: bef322a5b13cd4bc49759da108ba209d, type: 3}
+  - sprite: {fileID: 21300000, guid: ebfe9bb9930444da2a79ae5063d68d7e, type: 3}
     isBad: 0
-  - Image: {fileID: 21300000, guid: ebfe9bb9930444da2a79ae5063d68d7e, type: 3}
+  - sprite: {fileID: 21300000, guid: 05a1a3939d32c4299bb65ed64e965817, type: 3}
     isBad: 0
-  - Image: {fileID: 21300000, guid: 3b0938fcbdaca49469763c03bc748896, type: 3}
+  - sprite: {fileID: 21300000, guid: 3b0938fcbdaca49469763c03bc748896, type: 3}
     isBad: 0
-  - Image: {fileID: 21300000, guid: ab155995413f74c33a8aa0a0edce3a2b, type: 3}
+  - sprite: {fileID: 21300000, guid: dc1aa471c4c024ad8a54f34c2258bea3, type: 3}
     isBad: 0
-  - Image: {fileID: 21300000, guid: 0c566ffee81c04343964eab62ac2d69a, type: 3}
+  - sprite: {fileID: 21300000, guid: bef322a5b13cd4bc49759da108ba209d, type: 3}
+    isBad: 0
+  - sprite: {fileID: 21300000, guid: 30a2d186e84ac4e45adba023fe075e4b, type: 3}
+    isBad: 0
+  - sprite: {fileID: 21300000, guid: 0c566ffee81c04343964eab62ac2d69a, type: 3}
     isBad: 0
   badFoods:
-  - Image: {fileID: 21300000, guid: 0f3d72b1bee7143c19211743950b37a8, type: 3}
+  - sprite: {fileID: 21300000, guid: 4cc873502bb6a441380bbaa74bcf7c7f, type: 3}
     isBad: 1
-  - Image: {fileID: 21300000, guid: e5e60ae0e25ab455e8e27b540b7d80e9, type: 3}
+  - sprite: {fileID: 21300000, guid: 0f3d72b1bee7143c19211743950b37a8, type: 3}
     isBad: 1
-  - Image: {fileID: 21300000, guid: de05e40d76830493ebb458cda627b57a, type: 3}
+  - sprite: {fileID: 21300000, guid: 47b79cc5b54b8451f80378f719b1393a, type: 3}
     isBad: 1
-  - Image: {fileID: 21300000, guid: 47b79cc5b54b8451f80378f719b1393a, type: 3}
+  - sprite: {fileID: 21300000, guid: e5e60ae0e25ab455e8e27b540b7d80e9, type: 3}
     isBad: 1
-  - Image: {fileID: 21300000, guid: 585e4bdd2eed44f8a9adafd590c2c301, type: 3}
+  - sprite: {fileID: 21300000, guid: 21a9e06f05d6646f486317ffb49f9425, type: 3}
     isBad: 1
-  - Image: {fileID: 21300000, guid: 4cc873502bb6a441380bbaa74bcf7c7f, type: 3}
+  - sprite: {fileID: 21300000, guid: 585e4bdd2eed44f8a9adafd590c2c301, type: 3}
     isBad: 1
-  - Image: {fileID: 21300000, guid: 21a9e06f05d6646f486317ffb49f9425, type: 3}
+  - sprite: {fileID: 21300000, guid: de05e40d76830493ebb458cda627b57a, type: 3}
     isBad: 1

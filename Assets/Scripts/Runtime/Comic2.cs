@@ -11,7 +11,7 @@ public class Comic2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("ComicBG");
+        // FindObjectOfType<AudioManager>().Play("ComicBG");
     }
 
     // Update is called once per frame

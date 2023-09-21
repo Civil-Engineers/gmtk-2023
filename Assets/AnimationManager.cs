@@ -35,30 +35,25 @@ public class AnimationManager : MonoBehaviour
     }
 
     public bool girlHasFood() {
-        return girlAn.GetBool("hasFood");
+        return girlAn.GetBool("HasFood");
     }
 
     public bool girlGrabbing() {
-        return girlAn.GetBool("isGrabbing");
+        return girlAn.GetBool("IsGrabbing");
     }
 
     public void startGirlGrab() {
-        if(!girlHasFood()) {
-            girlAn.SetBool("isGrabbing", true);
-        }
+        girlAn.SetBool("IsGrabbing", true);
+        girlAn.SetBool("HasFood", false);
     }
 
     public void endGirlGrab(bool isFoodBad, bool hasFood) {
-        if (isFoodBad) {
-            girlAn.SetBool("IsFoodBad", true);
-        }
-
-        if (hasFood) {
-            girlAn.SetBool("HasFood", true);
-        }
+        girlAn.SetBool("IsFoodBad", isFoodBad);
+        girlAn.SetBool("HasFood", hasFood);
+        
         girlAn.SetBool("IsEating", true);
         waitGirlEating();
-        girlAn.SetBool("IsGrabbing", false);
+        StartCoroutine(routine: waitGirlEating());
     }
 
     public void peeboGrab() {
@@ -68,6 +63,8 @@ public class AnimationManager : MonoBehaviour
     IEnumerator waitGirlEating() {
         // errorText.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
+        girlAn.SetBool("IsGrabbing", false);
+        girlAn.SetBool("IsEating", false);
         // errorText.gameObject.SetActive(false);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FoodGame : MonoBehaviour
 {
-    [SerializeField] private UnityEngine.UI.Image foodImage;
+    [SerializeField] private SpriteRenderer foodImage;
     [SerializeField] private FoodGenerator foodGen;
 
     private Food[] randomFoods; 
@@ -20,13 +20,16 @@ public class FoodGame : MonoBehaviour
 
     private bool girlGrabbing = false;
 
-    private AnimationManager am = AnimationManager.Instance;
+    private AnimationManager am;
 
     // Start is called before the first frame update
     void Start()
     {
         // GenerateFood();
         setImageAlpha(foodImage, 0);
+        am = AnimationManager.Instance;
+        GenerateFood();
+        StartCoroutine(routine: ExampleCoroutine());
     }
 
     // Update is called once per frame
@@ -34,47 +37,83 @@ public class FoodGame : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) {
             am.peeboGrab();
-            n++;
-            Debug.Log("asdf");
+            if(seeFood) {
+                toggleFood();
+            }
         }
-        if(n > 2) {
-            SceneManager.LoadScene("ComicMess");
-        }
-
-        //  if (Input.GetMouseButtonDown(0)) {
-        //     am.peeboGrab();
-        //  }
 
         // if (foodItr < numFoods) {
         //     if (waiting) {
-        //         wait();
+        //         // yield return new WaitForSeconds(4f);
         //         waiting = false;
         //     } else {
         //         am.startGirlGrab();
         //         girlGrabbing = true;
-        //         waitFood();
+        //         // yield return new WaitForSeconds(4f);
         //         toggleFood();
+        //         Debug.Log("hi");
         //     }
         // }
     }
 
-    // private void GenerateFood() {
-    //     randomFoods = foodGen.Generate(numFoods);
-    //     currentFood = randomFoods[0];
-    //     foodImage.sprite = currentFood.Image;
-    // }
+    IEnumerator ExampleCoroutine()
+    {
+        while (true)
+        {
+            if (foodItr < numFoods) {
+                // check if food
+            }
+
+ 
+            am.startGirlGrab();
+            girlGrabbing = true;
+            
+            
+            // search for food animation
+            // yield return new WaitForSeconds(); // need to write a better way to sync with animations
+            if(!seeFood) {
+                toggleFood();
+            }
+
+            // currentFood = Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnLocation);
+            // currentFoodType = currentFood.GetComponent<Food>().foodType;
+
+            // wait for click
+            yield return new WaitForSeconds(2);
+            // if (currentFood == null)
+            am.endGirlGrab(currentFood.isBad, seeFood);
+            if(seeFood) {
+                toggleFood();
+            }
+
+            // wait for animation
+            yield return new WaitForSeconds(2.6f);
+        }
+    }
+
+    private void GenerateFood() {
+        randomFoods = foodGen.Generate(numFoods);
+        currentFood = randomFoods[0];
+        foodImage.sprite = currentFood.sprite;
+    }
 
     private void nextFood() {
+        if (foodItr < numFoods) {
+            // check if food
+            foodItr++;
+        }
         currentFood = randomFoods[foodItr];
-        foodImage.sprite = currentFood.Image;
+        foodImage.sprite = currentFood.sprite;
     }
 
     private void toggleFood() {
         if (seeFood) {
             setImageAlpha(foodImage, 0);
         } else {
+            nextFood();
             setImageAlpha(foodImage, 1);
         }
+        seeFood = !seeFood;
     }
 
     bool isFoodBad() {
@@ -90,7 +129,7 @@ public class FoodGame : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
-    private void setImageAlpha(UnityEngine.UI.Image img, int alpha) {
+    private void setImageAlpha(SpriteRenderer img, int alpha) {
         Color col = img.color;
         col.a = alpha;
         img.color = col;
